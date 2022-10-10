@@ -1,0 +1,7 @@
+@media (min-width: 992px) and (max-width: 1024px) {
+    #nav-bar {
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+    }
+}
