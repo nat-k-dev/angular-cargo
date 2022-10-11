@@ -19,8 +19,10 @@ export class AppComponent implements OnInit {
   toggleDarkMode(isDarkMode: boolean) {
     if (isDarkMode) {
       this.divMainContainer.nativeElement.classList.add("dark");
+      document.body.style.backgroundColor = 'black';
     } else {
       this.divMainContainer.nativeElement.classList.remove("dark");
+      document.body.style.backgroundColor = 'white';
     }
   }
 }
