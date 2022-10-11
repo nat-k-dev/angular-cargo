@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,10 +8,16 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '
 export class NavBarComponent implements OnInit {
   @ViewChild("darkMode") inputDarkMode: ElementRef;
   @Output() toggleDarkModeEvent = new EventEmitter<boolean>();
+  @Input() prefersDarkMode: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      if (this.prefersDarkMode) {
+        this.inputDarkMode.nativeElement.checked = true;
+      }
+    });
   }
 
   darkModeClick() {

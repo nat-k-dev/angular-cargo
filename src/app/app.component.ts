@@ -8,17 +8,17 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 })
 export class AppComponent implements OnInit {
   title = 'cargo';
-  darkMode: boolean = false;
+  isDarkMode: boolean = false;
   @ViewChild(NavBarComponent) navBar: NavBarComponent;
   @ViewChild("mainContainer") divMainContainer: ElementRef;
 
   ngOnInit(): void {
     const prefersDarkScheme = window.matchMedia("(prefers-color-schee: dark)");
     const prefersDarkMode = prefersDarkScheme.matches; 
-    let isDarkMode = prefersDarkMode || localStorage.getItem('color-theme') === 'dark';
+    this.isDarkMode = prefersDarkMode || localStorage.getItem('color-theme') === 'dark';
     // call in timeout (not immediately but after current script) 
     // because 'nativeElement' inside 'toggleDarkMode' function will be rendered after 'ngOnInit'
-    setTimeout(() => { this.toggleDarkMode(isDarkMode) });
+    setTimeout(() => { this.toggleDarkMode(this.isDarkMode) });
   }
 
   toggleDarkMode(isDarkMode: boolean) {
