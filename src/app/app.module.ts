@@ -15,6 +15,8 @@ import { ServiceComponent } from './components/service/service.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 
+import { DarkModeService } from './services/dark-mode.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
       { path: '', component: MainComponent}
     ]),
   ],
-  providers: [],
+  providers: [ DarkModeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
